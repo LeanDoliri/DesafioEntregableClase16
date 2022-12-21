@@ -3,9 +3,9 @@ const ERROR = { error: "producto no encontrado" };
 class ProductosApi {
   constructor() {
     this.products = [
-        {producto: 'Guitarra', precio: 40000, foto: 'https://cdn0.iconfinder.com/data/icons/camping-2-3/66/113-256.png'},
-        {producto: 'Guitarra', precio: 40000, foto: 'https://cdn0.iconfinder.com/data/icons/camping-2-3/66/113-256.png'},
-        {producto: 'Guitarra', precio: 40000, foto: 'https://cdn0.iconfinder.com/data/icons/camping-2-3/66/113-256.png'}
+        // {producto: 'Guitarra', precio: 40000, foto: 'https://cdn0.iconfinder.com/data/icons/camping-2-3/66/113-256.png'},
+        // {producto: 'Guitarra', precio: 40000, foto: 'https://cdn0.iconfinder.com/data/icons/camping-2-3/66/113-256.png'},
+        // {producto: 'Guitarra', precio: 40000, foto: 'https://cdn0.iconfinder.com/data/icons/camping-2-3/66/113-256.png'}
     ];
   }
 

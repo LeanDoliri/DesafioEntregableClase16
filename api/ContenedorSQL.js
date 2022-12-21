@@ -1,4 +1,4 @@
-import knex from 'knex'
+import knex from 'knex';
 
 class ContenedorSQL {
 
@@ -7,12 +7,16 @@ class ContenedorSQL {
         this.tabla = tabla
     }
 
-    async listar(id) {
-        
+    async getById(id) {
+
     }
 
-    async listarAll() {
-        
+    async getAll() {
+        try {
+            return this.knex(this.table).select("*").limit(15)
+        } catch (error) {
+            
+        }
     }
 
     async guardar(elem) {
@@ -22,8 +26,6 @@ class ContenedorSQL {
     async actualizar(elem, id) {
         
     }
-
-
 
     async borrar(id) {
         
@@ -38,4 +40,4 @@ class ContenedorSQL {
     }
 }
 
-export default ContenedorSQL
+export default ContenedorSQL;
