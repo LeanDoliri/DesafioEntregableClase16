@@ -1,8 +1,8 @@
-export default {
+export const options = {
     sqlite3: {
         client: 'sqlite3',
         connection: {
-            filename: `./DB/ecommerce.sqlite`
+            filename: './db/mydb.sqlite'
         },
         useNullAsDefault: true
     },
@@ -14,5 +14,15 @@ export default {
             password: '',
             database: 'coderhouse'
         }
-    }
+    },
+    mysql: {
+        client: 'mysql',
+        connection: {
+            host: '127.0.0.1',
+            user: 'root',
+            password: '',
+            database: 'my_db_clase16',
+            pot: 3306
+        }
+    } 
 }

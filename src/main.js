@@ -1,13 +1,14 @@
 import express from 'express';
+import { options } from './config.js';
 
 import { Server as HttpServer } from 'http';
 import { Server as Socket } from 'socket.io';
 
-import ProductosApi from "../api/ProductosApi.js";
-const producto = new ProductosApi();
+import ProductosApi from "../api/ContenedorSQL.js";
+const producto = new ProductosApi(options.sqlite3, 'products');
 
 import ChatApi from '../api/ChatApi.js';
-const chat = new ChatApi();
+const chat = new ChatApi(options.sqlite3, 'chat');
 
 //--------------------------------------------
 // instancio servidor, socket y api
@@ -23,18 +24,20 @@ app.use(express.static('public'))
 
 //--------------------------------------------
 // configuro el socket
-io.on('connection', socket => {
+io.on('connection', async socket => {
     console.log('Nuevo cliente conectado!');
     //productos
-    const productos = producto.getAll();
+    const productos = await producto.getAll();
     socket.emit('productos', productos);
 
-    socket.on('newProduct', data => {
-        producto.create(data)
+    socket.on('newProduct', async data => {
+        producto.create(data);
+        const productos = await producto.getAll();
         io.sockets.emit('productos', productos);
     });
+    
     //mensajes
-    const messages = chat.getAll();
+    const messages = await chat.getAll();
     socket.emit('messages', messages)
     
     socket.on('newMessage', message => {
