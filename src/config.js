@@ -2,7 +2,7 @@ export const options = {
     sqlite3: {
         client: 'sqlite3',
         connection: {
-            filename: './db/mydb.sqlite'
+            filename: './DB/ecommerce.sqlite'
         },
         useNullAsDefault: true
     },
